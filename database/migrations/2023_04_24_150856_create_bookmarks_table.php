@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('annonce_id');
+            $table->foreign('annonce_id')->references('id')->on('annonces');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
